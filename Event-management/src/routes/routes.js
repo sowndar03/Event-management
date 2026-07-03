@@ -14,4 +14,4 @@ router.get('/api/events', listEvents);
 router.post('/api/reservations', reseverSeatValidator, validate, reserveSeats);
 router.delete('/api/reservations/:id', deleteSeats);
 router.get('/api/user/reservations', getAllUserRervation);
-router.get('/api/:id/reservations', userReserveration);
+// router.delete('/api/:id/reservations', userReserveration);
