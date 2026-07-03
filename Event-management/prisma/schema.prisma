@@ -1,0 +1,46 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "mysql"
+   url      = env("DATABASE_URL")
+}
+
+enum ReservationStatus {
+  confirmed
+  cancelled
+}
+
+model Event {
+  id             String @id @default(uuid())
+  name           String
+  date           DateTime
+  totalSeats     Int @map("total_seats")
+  remainingSeats Int @map("remaining_seats")
+  createdAt      DateTime @default(now()) @map("created_at")
+  updatedAt      DateTime @updatedAt @map("updated_at")
+  reservations   Reservation[]
+  @@map("events")
+}
+
+model Reservation {
+  id        String @id @default(uuid())
+  userId    String @map("user_id")
+  eventId   String @map("event_id")
+  seats     Int
+  status    ReservationStatus
+  createdAt DateTime @default(now()) @map("created_at")
+  event      Event @relation(fields: [eventId], references: [id])
+  auditLogs  AuditLog[]
+  @@map("reservations")
+}
+
+model AuditLog {
+  id            String @id @default(uuid())
+  action        String
+  reservationId String @map("reservation_id")
+  createdAt      DateTime @default(now()) @map("created_at")
+  reservation Reservation @relation(fields: [reservationId], references: [id])
+  @@map("audit_logs")
+}
