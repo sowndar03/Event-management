@@ -4,44 +4,15 @@ A full-stack Event Management System built using **React**, **Node.js**, **Expre
 
 ---
 
-## 🚀 Features
-
-- Create new events
-- View all available events
-- Reserve seats for an event
-- Prevent overbooking
-- Cancel reservations
-- Automatically restore seats after cancellation
-- Transaction support using Prisma
-
----
-
-## 🛠️ Tech Stack
-
-### Frontend
-- React.js
-- Vite
-- Tailwind CSS
-- Axios
-- React Router DOM
-
-### Backend
-- Node.js
-- Express.js
-- Prisma ORM
-- MySQL
-- Redis
-
----
 
 
-## ⚙️ Installation
+## Installation
 
 ### Clone the repository
 
-```bash
-git clone https://github.com/<your-github-username>/Event-management.git
-```
+
+git clone https://github.com/sowndar03/Event-management.git
+
 
 Navigate to the project directory
 
