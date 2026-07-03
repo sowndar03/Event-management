@@ -20,7 +20,8 @@ export const deleteSeats = async (req, res) => {
   try {
     const { id } = req.params;
     const deleteSeats = await deleteReservedSeats(id);
-    res.status(200).json({ message: "Seats Cancelled Successfully" });
+    const reservations = await listUser();
+    res.status(200).json({ message: "Seats Cancelled Successfully", data: reservations });
   } catch (error) {
     return res.status(error.statusCode || 500).json({
       message: error.message,

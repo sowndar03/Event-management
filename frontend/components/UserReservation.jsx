@@ -35,7 +35,7 @@ const UserReservation = ({ open, onClose }) => {
       alert("Reservation cancelled successfully.");
 
       const response = await axios.get(`${api_url}/user/reservations`);
-      setReservations(response.data);
+      setReservations(response.data.data);
     } catch (error) {
       console.error(error);
       alert(error.response?.data?.message || "Failed to cancel reservation");
